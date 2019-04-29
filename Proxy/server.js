@@ -10,26 +10,24 @@ const port = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.static(path.join(__dirname, './public')));
 
-const chartReq = axios.create({
-    baseURL: 'http://ec2-13-57-177-212.us-west-1.compute.amazonaws.com:2468/'
+  const averages = axios.create({
+    // baseURL: 'http://ec2-3-84-115-167.compute-1.amazonaws.com:8080/' 
+    baseURL: 'http://localhost:8080/'
   });
-  
-  app.get('/api/:stockId', (req, res) => {
-    chartReq.get(`api/${req.params.stockId}`)
+
+  app.get('/api/price/:id', (req, res) => {
+    averages.get(`api/price/${req.params.id}`)
     .then((response) => {
       res.send(response.data);
     })
   })
 
-  const buyFormReq = axios.create({
-      baseURL: 'http://ec2-3-84-115-167.compute-1.amazonaws.com:8080/' 
-  });
-
-  app.get('/stocks/:query', (req, res) => {
-      buyFormReq.get(`stocks/${req.params.query}`)
-      .then((response) => {
-          res.send(response.data);
-      })
+  app.get('/price/:id', (req, res) => {
+    console.log(req.params.id);
+    averages.get(`price/${req.params.id}`)
+    .then((response) => {
+      res.send(response.data);
+    })
   })
 
 app.listen(port, () => {

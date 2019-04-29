@@ -1,2 +1,4 @@
 node_modules
 goblinhood.pem
+newrelic.js
+node_modules/*

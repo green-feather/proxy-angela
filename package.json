@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node ./Proxy/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,13 @@
   "bugs": {
     "url": "https://github.com/menintights/proxy-server-sebastian/issues"
   },
-  "homepage": "https://github.com/menintights/proxy-server-sebastian#readme"
+  "homepage": "https://github.com/menintights/proxy-server-sebastian#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
+    "newrelic": "^5.7.0",
+    "nodemon": "^1.18.11"
+  }
 }
